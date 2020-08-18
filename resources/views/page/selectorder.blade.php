@@ -4,7 +4,7 @@
     @csrf
     <div class="row mt-4 mr-4 ml-4">
         <div class="col-2"><label><big> Name of medicine</big></label></div>
-        <div class="col"><input type="text" class="form-control form-control-lg" placeholder="Name of medicine" name="medicine"></div>
+        <div class="col"><input type="text" class="form-control form-control-lg" placeholder="Name of medicine" name="medicine" value={{$med}}></div>
     </div>
     <div class="row mt-4 mr-4 ml-4">    
         <div class="col-2"><label> <big>Quantity </big> </label></div>

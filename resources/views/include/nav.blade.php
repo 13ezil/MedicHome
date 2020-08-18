@@ -12,7 +12,7 @@
   </div>
 
   <div>
-     <h3 class="float-left mt-1">Username</h3>
+  <h3 class="float-left mt-1">{{auth()->user()->name}}</h3>
      <button type="button" class="btn bg-transaparent btn-lg"><i class="fa fa-bell"></i></button>
   </div>
 </nav>
