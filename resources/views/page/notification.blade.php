@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('content')
 <div id="app">
-<admin-notification></admin-notification>
+    <user-notification></user-notification>
 </div>
 @endsection

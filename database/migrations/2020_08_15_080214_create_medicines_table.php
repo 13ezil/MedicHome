@@ -18,7 +18,7 @@ class CreateMedicinesTable extends Migration
             $table->string('name')->unique();
             $table->integer('quantity');
             $table->integer('price');
-            $table->string('review');
+            $table->string('review')->nullable();
             $table->timestamps();
         });
     }

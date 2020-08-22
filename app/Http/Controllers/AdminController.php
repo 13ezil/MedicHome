@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\ApproveNotification;
+use App\Notifications\DeclineNotification;
 use Illuminate\Http\Request;
 use App\Medicine;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -52,5 +55,37 @@ class AdminController extends Controller
                     "review" => $request['review'],
                      ]);
         return redirect('/admin');
+    }
+
+    public function notification()
+    {
+        return view('admin.page.notification');
+    }
+
+    public function getNotification()
+    {
+        $arr = [];
+        $i = 0;
+        $user = User::find(auth()->user()->id);
+        foreach ($user->unreadnotifications as $notification) 
+        {
+            $arr[$i] = $notification;
+            $i++;
+        }
+        return $arr;
+    }
+
+    public function approveNotification($id)
+    {
+        $notification = auth()->user()->unreadNotifications->where('id', $id)->first();
+        User::find($notification['data']['order']['user_id'])->notify(new ApproveNotification());
+        auth()->user()->unreadNotifications->where('id', $id)->markAsRead();
+    }
+
+    public function declineNotification($id)
+    {
+        $notification = auth()->user()->unreadNotifications->where('id', $id)->first();
+        auth()->user()->unreadNotifications->where('id', $id)->markAsRead();
+        User::find($notification['data']['order']['user_id'])->notify(new DeclineNotification());
     }
 }

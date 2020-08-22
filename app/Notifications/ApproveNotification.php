@@ -6,23 +6,19 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use App\Notifications\ApproveNotification;
-use App\Notifications\DeclineNotification;
-use App\Order;
 
-class OrderNotify extends Notification
+class ApproveNotification extends Notification
 {
     use Queueable;
-    public $khataa;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Order $order)
+    public function __construct()
     {
-        $this->order = $order ;
+        //
     }
 
     /**
@@ -45,7 +41,7 @@ class OrderNotify extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            "order" => $this->order,
+            "info" => "Your order has been approved.",
         ];
     }
 
@@ -59,7 +55,8 @@ class OrderNotify extends Notification
     public function toArray($notifiable)
     {
         return [
-            "order" => $this->order,
+            "info" => "Your order has been approved.",
         ];
     }
 }
+

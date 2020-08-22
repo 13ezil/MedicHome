@@ -1,0 +1,6 @@
+
+#step 1: Composer install
+#step 2: php artisan migrate:fresh
+#step 3: php artisan db:seed
+#step 4: npm install
+#step 5: npm run watch
