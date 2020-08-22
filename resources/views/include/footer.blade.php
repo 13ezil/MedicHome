@@ -1,8 +1,9 @@
 <!-- Footer -->
-<footer class="page-footer font-small blue pt-4 pl-4" style="background-color: 14D8C2;">
+<footer class="footer font-small blue pt-4 pl-4 mb-0" 
+style="background-color: #00a86b;">
 
   <!-- Footer Links -->
-  <div class="container-fluid text-center text-md-left">
+  <div class="container text-center text-md-left">
 
     <!-- Grid row -->
     <div class="row">
@@ -32,12 +33,6 @@
           <li>
             <a href="#!">Link 2</a>
           </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
         </ul>
 
       </div>
@@ -56,13 +51,7 @@
           <li>
             <a href="#!">Link 2</a>
           </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
-        </ul>
+          </ul>
 
       </div>
       <!-- Grid column -->

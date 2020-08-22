@@ -1,3 +1,4 @@
+<div class="container">
 @extends('layout.app')
 @section('content')
 @foreach ($order as $orders)
@@ -9,3 +10,4 @@
     <img src="{{asset('uploads/medicinephoto/'.$orders->medicine_photo)}}">
 @endforeach
 @endsection
+</div>

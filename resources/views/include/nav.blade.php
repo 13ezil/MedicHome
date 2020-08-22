@@ -1,13 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: 14D8C2;">
-  <a class="navbar-brand" href="{{route('homepage')}}"><h3>MedicHome</h3></a>
+<nav class="navbar nav-pills navbar-expand-lg navbar-light" 
+style="background-color: #00a86b;">
+  <a class="navbar-brand px-3" href="{{route('homepage')}}""><h2><b>MedicHome</b></h2></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav nav-pills">
-      <a class="nav-item nav-link border-info rounded" href="{{route('medicinedetail')}}"><big>Medicine Details</big></a>
-      <a class="nav-item nav-link border-info rounded" href="{{route('order')}}"><big>Order</big></a>
-      <a class="nav-item nav-link border-info rounded" href="{{route('history')}}"><big>History Details</big></a>
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="{{route('medicinedetail')}}"><big>Medicine Details</big></a>
+      <a class="nav-item nav-link" href="{{route('order')}}"><big>Order</big></a>
+      <a class="nav-item nav-link" href="{{route('history')}}"><big>History Details</big></a>
     </div>
   </div>
 
