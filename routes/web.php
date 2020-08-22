@@ -23,6 +23,8 @@ Route::get('/order', [MainController::class, 'order'])->name('order');
 Route::get('/history', [MainController::class, 'history'])->name('history');
 Route::get('/selectOrder/{id}', [MainController::class, 'selectOrder'])->name('selectorder');
 Route::post('/placeOrder', [MainController::class, 'placeOrder'])->name('placeorder');
+Route::get('/user/notification', [MainController::class, 'notification'])->name('notification');
+Route::post('/user/getnotification', [MainController::class, 'getnotification'])->name('getnotification');
 });
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
@@ -36,6 +38,8 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.','mid
     Route::post('/updatemedicine', [AdminController::class, 'updatemedicine'])->name('updatemedicine');
     Route::get('/notification', [AdminController::class, 'notification'])->name('notification');
     Route::post('/getnotification', [AdminController::class, 'getNotification'])->name('getnotification');
+    Route::post('/approveNotification/{id}', [AdminController::class, 'approveNotification'])->name('approvenotification');
+    Route::post('/declineNotification/{id}', [AdminController::class, 'declineNotification'])->name('declinenotification');
 });
 
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout'])->name('logout');

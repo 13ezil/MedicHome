@@ -19,6 +19,6 @@
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="{{route('logout')}}">Log out</a>
       </div>
-     <button type="button" class="btn bg-transaparent btn-lg"><i class="fa fa-bell"></i></button>
+      <a href="{{route('notification')}}"><button type="button" class="btn bg-transaparent btn-lg"><i class="fa fa-bell"></i></button></a>
   </div>
 </nav>

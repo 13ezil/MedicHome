@@ -57,21 +57,20 @@ class MainController extends Controller
                $order->phonenumber = auth()->user()->phonenumber;
                $order->price = ($request['quantity'] * $med->price);  
                //image
-
                if($request->hasfile('doctorPrescription'))
                {    
                    $file = $request->file('doctorPrescription');
                    $doctorPrescription = $request->file('doctorPrescription')->getClientOriginalName();
-                   $file->move('uploads/doctorprescription/',$doctorPrescription);
+                   $file->move('storage/uploads/doctorprescription/',$doctorPrescription);
                    $order->doctor_prescription = $doctorPrescription;
-                }
-                if($request->hasfile('medicinephoto'))
-                {    
-                   $file = $request->file('medicinephoto');
-                   $medicinePhoto = $request->file('medicinephoto')->getClientOriginalName();
-                   $file->move('uploads/medicinephoto/',$medicinePhoto);
-                   $order->medicine_photo = $medicinePhoto;
-                }
+               }
+               if($request->hasfile('medicinephoto'))
+               {    
+                    $file = $request->file('medicinephoto');
+                    $medicinePhoto = $request->file('medicinephoto')->getClientOriginalName();
+                    $file->move('storage/uploads/medicinephoto/',$medicinePhoto);
+                    $order->medicine_photo = $medicinePhoto;
+               } 
 
                 Medicine::where('name',$request['medicine'])
                  ->update([
@@ -92,20 +91,38 @@ class MainController extends Controller
             {    
                 $file = $request->file('doctorPrescription');
                 $doctorPrescription = $request->file('doctorPrescription')->getClientOriginalName();
-                $file->move('uploads/doctorprescription/',$doctorPrescription);
+                $file->move('storage/uploads/doctorprescription/',$doctorPrescription);
                 $order->doctor_prescription = $doctorPrescription;
             }
             if($request->hasfile('medicinephoto'))
             {    
-            $file = $request->file('medicinephoto');
-            $medicinePhoto = $request->file('medicinephoto')->getClientOriginalName();
-            $file->move('uploads/medicinephoto/',$medicinePhoto);
-            $order->medicine_photo = $medicinePhoto;
+                $file = $request->file('medicinephoto');
+                $medicinePhoto = $request->file('medicinephoto')->getClientOriginalName();
+                $file->move('storage/uploads/medicinephoto/',$medicinePhoto);
+                $order->medicine_photo = $medicinePhoto;
             }  
         }
         //save
         $order->save();
         User::find(1)->notify(new OrderNotify($order));
         return back();
+    }
+    
+    public function notification()
+    {
+        return view("page.notification");
+    }
+
+    public function getnotification()
+    {
+        $arr = [];
+        $i = 0;
+        $user = User::find(auth()->user()->id);
+        foreach ($user->notifications as $notification) 
+        {
+            $arr[$i] = $notification;
+            $i++;
+        }
+        return $arr;
     }
 }
