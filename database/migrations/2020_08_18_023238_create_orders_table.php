@@ -20,9 +20,9 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id');
             $table->string('doctor_prescription')->nullable();
             $table->string('phonenumber');
-            $table->string('medicine_photo')->nullabel();
+            $table->string('medicine_photo')->nullable();
             $table->string('location');
-            $table->integer('price')->nullable();
+            $table->double('price')->nullable();
             $table->timestamps();
         });
     }

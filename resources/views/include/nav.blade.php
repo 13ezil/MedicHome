@@ -12,7 +12,13 @@
   </div>
 
   <div>
-  <h3 class="float-left mt-1">{{auth()->user()->name}}</h3>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle bg-transparent border-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <big> {{auth()->user()->name}}</big>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{{route('logout')}}">Log out</a>
+      </div>
      <button type="button" class="btn bg-transaparent btn-lg"><i class="fa fa-bell"></i></button>
   </div>
 </nav>

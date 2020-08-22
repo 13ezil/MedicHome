@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Medicine;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -52,5 +53,23 @@ class AdminController extends Controller
                     "review" => $request['review'],
                      ]);
         return redirect('/admin');
+    }
+
+    public function notification()
+    {
+        return view('admin.page.notification');
+    }
+
+    public function getNotification()
+    {
+        $arr = [];
+        $i = 0;
+        $user = User::find(auth()->user()->id);
+        foreach ($user->notifications as $notification) 
+        {
+            $arr[$i] = $notification;
+            $i++;
+        }
+        return $arr;
     }
 }

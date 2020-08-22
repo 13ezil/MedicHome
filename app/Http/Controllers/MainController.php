@@ -42,35 +42,42 @@ class MainController extends Controller
     {
         $med = Medicine::where('name',$request['medicine'])->first();
         if($med!=null)
-        {
-            $order = new Order();
-            $order->name = $request['medicine']; 
-            $order->user_id = auth()->user()->id; 
-            $order->quantity = $request['quantity'];  
-            $order->location = $request['location'];
-            $order->phonenumber = auth()->user()->phonenumber;
-            $order->price = ($request['quantity'] * $med->price);  
-            //image
-
-            if($request->hasfile('doctorPrescription'))
-            {    
-                $file = $request->file('doctorPrescription');
-                $doctorPrescription = $request->file('doctorPrescription')->getClientOriginalName();
-                $file->move('uploads/doctorprescription/',$doctorPrescription);
-                $order->doctor_prescription = $doctorPrescription;
+        {   
+            if($med->quantity < $request['quantity'])
+            {
+                return vuew('page.outofstock');
             }
-            if($request->hasfile('medicinephoto'))
-            {    
-                $file = $request->file('medicinephoto');
-                $medicinePhoto = $request->file('medicinephoto')->getClientOriginalName();
-                $file->move('uploads/medicinephoto/',$medicinePhoto);
-                $order->medicine_photo = $medicinePhoto;
-            }
+            else
+            {
+               $order = new Order();
+               $order->name = $request['medicine']; 
+               $order->user_id = auth()->user()->id; 
+               $order->quantity = $request['quantity'];  
+               $order->location = $request['location'];
+               $order->phonenumber = auth()->user()->phonenumber;
+               $order->price = ($request['quantity'] * $med->price);  
+               //image
 
-        Medicine::where('name',$request['medicine'])
+               if($request->hasfile('doctorPrescription'))
+               {    
+                   $file = $request->file('doctorPrescription');
+                   $doctorPrescription = $request->file('doctorPrescription')->getClientOriginalName();
+                   $file->move('uploads/doctorprescription/',$doctorPrescription);
+                   $order->doctor_prescription = $doctorPrescription;
+                }
+                if($request->hasfile('medicinephoto'))
+                {    
+                   $file = $request->file('medicinephoto');
+                   $medicinePhoto = $request->file('medicinephoto')->getClientOriginalName();
+                   $file->move('uploads/medicinephoto/',$medicinePhoto);
+                   $order->medicine_photo = $medicinePhoto;
+                }
+
+                Medicine::where('name',$request['medicine'])
                  ->update([
                  'quantity' => ($med->quantity - $request['quantity'])
                  ]);
+            }   
         }
         else
         {
@@ -99,5 +106,6 @@ class MainController extends Controller
         //save
         $order->save();
         User::find(1)->notify(new OrderNotify($order));
+        return back();
     }
 }

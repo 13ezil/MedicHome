@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         if(auth()->user()->type == "admin")
         {
-            return view('admin.page.view');
+            return redirect('/admin/create');
         }
         return view('page.home');
     }
