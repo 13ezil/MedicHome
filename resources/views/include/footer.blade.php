@@ -1,6 +1,6 @@
 <!-- Footer -->
-<footer class="footer font-small blue pt-4 pl-4 mb-0" 
-style="background-color: #00a86b;">
+<footer class="footer font-small blue pt-2 pl-1 pr-1  mb-0 mr-0 ml-0" 
+style="background-color: #00a86b; text-align: center;">
 
   <!-- Footer Links -->
   <div class="container text-center text-md-left">
@@ -9,7 +9,7 @@ style="background-color: #00a86b;">
     <div class="row">
 
       <!-- Grid column -->
-      <div class="col-md-6 mt-md-0 mt-3">
+      <div class="col-md-6 mt-md-0 mt-2">
 
         <!-- Content -->
         <h5 class="text-uppercase">Footer Content</h5>
@@ -18,10 +18,10 @@ style="background-color: #00a86b;">
       </div>
       <!-- Grid column -->
 
-      <hr class="clearfix w-100 d-md-none pb-3">
+      <hr class="clearfix w-100 d-md-none pb-2">
 
       <!-- Grid column -->
-      <div class="col-md-3 mb-md-0 mb-3">
+      <div class="col mb-sm-0 mb-2">
 
         <!-- Links -->
         <h5 class="text-uppercase">Links</h5>
@@ -39,7 +39,7 @@ style="background-color: #00a86b;">
       <!-- Grid column -->
 
       <!-- Grid column -->
-      <div class="col-md-3 mb-md-0 mb-3">
+      <div class="col mb-sm-0 mb-2">
 
         <!-- Links -->
         <h5 class="text-uppercase">Links</h5>
@@ -62,6 +62,6 @@ style="background-color: #00a86b;">
   </div>
   <!-- Footer Links -->
 
-  
+
 </footer>
-<!-- Footer -->
+<!-- Footer --> 

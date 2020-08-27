@@ -18,7 +18,7 @@ class MainController extends Controller
 
     public function medicine()
     {
-        $med = Medicine::orderBy('name','asc')->paginate(15);
+        $med = Medicine::orderBy('name','asc')->paginate(10);
         return view('page.medicine',['med'=>$med]);
     }
 

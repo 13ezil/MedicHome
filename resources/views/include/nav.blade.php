@@ -1,4 +1,4 @@
-<nav class="navbar nav-pills navbar-expand-lg navbar-light" 
+<nav class="navbar nav-pills navbar-expand-md navbar-light" 
 style="background-color: #00a86b;">
   <a class="navbar-brand px-3" href="{{route('homepage')}}""><h2><b>MedicHome</b></h2></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

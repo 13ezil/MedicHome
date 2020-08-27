@@ -1,14 +1,15 @@
 <!-- Footer -->
-<footer class="page-footer font-small blue pt-4 pl-4" style="background-color: 14D8C2;">
+<footer class="footer font-small blue pt-2 pl-1 pr-1  mb-0 mr-0 ml-0" 
+style="background-color: #00a86b; text-align: center;">
 
   <!-- Footer Links -->
-  <div class="container-fluid text-center text-md-left">
+  <div class="container text-center text-md-left">
 
     <!-- Grid row -->
     <div class="row">
 
       <!-- Grid column -->
-      <div class="col-md-6 mt-md-0 mt-3">
+      <div class="col-md-6 mt-md-0 mt-2">
 
         <!-- Content -->
         <h5 class="text-uppercase">Footer Content</h5>
@@ -17,10 +18,10 @@
       </div>
       <!-- Grid column -->
 
-      <hr class="clearfix w-100 d-md-none pb-3">
+      <hr class="clearfix w-100 d-md-none pb-2">
 
       <!-- Grid column -->
-      <div class="col-md-3 mb-md-0 mb-3">
+      <div class="col mb-sm-0 mb-2">
 
         <!-- Links -->
         <h5 class="text-uppercase">Links</h5>
@@ -31,12 +32,6 @@
           </li>
           <li>
             <a href="#!">Link 2</a>
-          </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
           </li>
         </ul>
 
@@ -44,7 +39,7 @@
       <!-- Grid column -->
 
       <!-- Grid column -->
-      <div class="col-md-3 mb-md-0 mb-3">
+      <div class="col mb-sm-0 mb-2">
 
         <!-- Links -->
         <h5 class="text-uppercase">Links</h5>
@@ -56,13 +51,7 @@
           <li>
             <a href="#!">Link 2</a>
           </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
-        </ul>
+          </ul>
 
       </div>
       <!-- Grid column -->
@@ -73,6 +62,6 @@
   </div>
   <!-- Footer Links -->
 
-  
+
 </footer>
-<!-- Footer -->
+<!-- Footer --> 

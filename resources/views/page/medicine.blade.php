@@ -1,7 +1,8 @@
 @extends('layout.app')
 @section('content')
-<div class="container">
-<table class="table ml-4 mr-4 h-25">
+<div class="container" >
+<div class="table-responsive-md">
+<table class="table ml-sm-4 mr-sm-4 h-sm-75">
     <thead class="thead-dark">
       <tr>
         <th>Name</th>
@@ -19,14 +20,17 @@
         <td>{{$m->quantity}}</td>
         <td>{{$m->price}}</td>
         <td>{{$m->review}}</td>   
-    <td ><a href="{{route('selectorder',$m->name)}}"> <button type="button" class="btn btn-dark">Select Item</button></a>
+    <td > <button type="button" class="btn btn-info">Select Item</button></a>
     </tr>
     @endforeach
 </div>
     </tbody>
+    
 </table>
+
 <div class="d-flex justify-content-center">
 {{ $med->links() }}
+</div>
 </div>
 </div>
 @endsection

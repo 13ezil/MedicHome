@@ -5,7 +5,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  </head>
-  <body style="background-color: #08AEEA;background-image: linear-gradient(0deg, #08AEEA 0%, #33c76d 90%);">
+  <body>
     @include('admin.include.nav')
     @yield('content')
     @include('admin.include.footer')
