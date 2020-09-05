@@ -20,7 +20,7 @@
         <td>{{$m->quantity}}</td>
         <td>{{$m->price}}</td>
         <td>{{$m->review}}</td>   
-    <td > <button type="button" class="btn btn-info">Select Item</button></a>
+    <td ><a href="{{url('selectOrder/'. $m->name)}}"> <button type="button" class="btn btn-info">Select Item</button></a>
     </tr>
     @endforeach
 </div>

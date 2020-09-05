@@ -34,9 +34,38 @@
         <div class="col"><input type="text" class="form-control form-control-lg" name="location" placeholder="Location"></div>
     </div>
     <div class="row mt-4 mr-4 ml-4">
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Place Order</button>
+        <button type="submit" onclick="loading()" class="btn btn-primary btn-lg btn-block">Place Order</button>
     </div>
 </form>
 
 
 @endsection
+
+@push('after-scripts')
+    <script>
+  function loading()
+  {
+    let timerInterval
+    Swal.fire({
+    title: 'Loading...',
+    timer: 2000,
+    timerProgressBar: true,
+    onBeforeOpen: () => {
+    Swal.showLoading()
+    timerInterval = setInterval(() => {
+      const content = Swal.getContent()
+      if (content) {
+        const b = content.querySelector('b')
+        if (b) {
+          b.textContent = Swal.getTimerLeft()
+        }
+      }
+    }, 100)
+  },
+  onClose: () => {
+    clearInterval(timerInterval)
+  }
+  }).then((result) => {})
+  }
+    </script>
+@endpush
