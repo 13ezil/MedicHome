@@ -148,4 +148,9 @@ class MainController extends Controller
         }
         return $arr;
     }
+    
+    public function contact()
+    {
+        return view('page.contact');
+    }
 }
