@@ -9,10 +9,11 @@ style="background-color: #00a86b;">
       <a class="nav-item nav-link" href="{{route('medicinedetail')}}"><big>Medicine Details</big></a>
       <a class="nav-item nav-link" href="{{route('order')}}"><big>Order</big></a>
       <a class="nav-item nav-link" href="{{route('history')}}"><big>History Details</big></a>
+      <a class="nav-item nav-link" href="{{route('direction')}}"><big>Direction</big></a>
     </div>
   </div>
 
-  <div>
+  @auth
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle bg-transparent border-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
        <big> {{auth()->user()->name}}</big>
@@ -22,4 +23,14 @@ style="background-color: #00a86b;">
       </div>
       <a href="{{route('notification')}}"><button type="button" class="btn bg-transaparent btn-lg"><i class="fa fa-bell"></i></button></a>
   </div>
+  @endauth
+
+  @guest
+  <div >
+    <button class="btn btn-secondary bg-transparent border-0">
+     <big> Guest</big>
+    </button>
+    <a href="{{route('notification')}}"><button type="button" class="btn bg-transaparent btn-lg"><i class="fa fa-bell"></i></button></a>
+</div>
+  @endguest
 </nav>

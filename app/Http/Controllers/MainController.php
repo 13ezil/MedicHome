@@ -41,13 +41,12 @@ class MainController extends Controller
 
     public function placeOrder(OrderRequest $request)
     {
-        $location = $this->getLocation($request->location,$request->latlong);
         $med = Medicine::where('name',$request['medicine'])->first();
         if($med!=null)
         {   
             if($med->quantity < $request['quantity'])
             {
-                return view('page.outofstock');
+                return back()->with('error','Sorry we are out of stock.');
             }
             else
             {
@@ -55,7 +54,8 @@ class MainController extends Controller
                $order->name = $request['medicine']; 
                $order->user_id = auth()->user()->id; 
                $order->quantity = $request['quantity'];  
-               $order->location = $location;
+               $order->location = $request->location;
+               $order->latlong = $request->latlong;
                $order->phonenumber = auth()->user()->phonenumber;
                $order->price = ($request['quantity'] * $med->price);  
                //image
@@ -94,7 +94,8 @@ class MainController extends Controller
             $order->name = $request['medicine']; 
             $order->user_id = auth()->user()->id; 
             $order->quantity = $request['quantity'];  
-            $order->location = $location;
+            $order->location = $request->location;
+            $order->latlong = $request->latlong;
             $order->phonenumber = auth()->user()->phonenumber;
              //image
             if($request->hasfile('doctorPrescription'))
@@ -127,10 +128,6 @@ class MainController extends Controller
         return redirect()->route('order')->with('success','Successfully order placed.');
     }
 
-    public function getLocation($address,$latlong)
-    {
-      return $address.",".$latlong;
-    }
     public function notification()
     {
         return view("page.notification");
@@ -147,5 +144,10 @@ class MainController extends Controller
             $i++;
         }
         return $arr;
+    }
+
+    public function getdirection()
+    {
+        return view('page.direction');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Support\Facades\Auth;
 use Closure;
 use App\User;
 
@@ -16,7 +17,11 @@ class UserMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->type == "admin")
+        if (!Auth::check()) 
+        {
+            return redirect('/login');
+        }
+        else if(auth()->user()->type == "admin")
         {
             return redirect('/admin/create');
         }

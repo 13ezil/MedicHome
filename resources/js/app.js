@@ -22,6 +22,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('admin-notification', require('./components/AdminNotification.vue').default);
 Vue.component('user-notification', require('./components/UserNotification.vue').default);
+Vue.component('user-direction', require('./components/UserDirection.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

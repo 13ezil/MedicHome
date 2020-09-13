@@ -12,23 +12,30 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AdminController;
 
+//for customer
 Route::group(['middleware'=>'auth','middleware' => 'user'], function () {
-Route::get('/homepage', [MainController::class, 'home'])->name('homepage');
-Route::get('/medicineDetail', [MainController::class, 'medicine'])->name('medicinedetail');
 Route::get('/order', [MainController::class, 'order'])->name('order');
 Route::get('/history', [MainController::class, 'history'])->name('history');
 Route::get('/selectOrder/{id}', [MainController::class, 'selectOrder'])->name('selectorder');
 Route::post('/placeOrder', [MainController::class, 'placeOrder'])->name('placeorder');
 Route::get('/user/notification', [MainController::class, 'notification'])->name('notification');
 Route::post('/user/getnotification', [MainController::class, 'getnotification'])->name('getnotification');
+Route::get('/getdirection', [MainController::class, 'getdirection'])->name('direction');
 });
 Auth::routes();
-Route::get('/', 'HomeController@index')->name('home');
 
+//if user is not logged in
+Route::get('/', [MainController::class, 'home'])->name('homepage');
+Route::get('/medicineDetail', [MainController::class, 'medicine'])->name('medicinedetail');
+
+//after user logged in
+Route::get('/home',[HomeController::class,'index'])->name('home');
+
+//for admin user
 Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.','middleware'=>'auth','middleware' => 'admin'], function () {
     Route::get('/view', [AdminController::class, 'index'])->name('viewmedicine');
     Route::get('/create', [AdminController::class, 'create'])->name('createmedicine');
@@ -42,4 +49,5 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.','mid
     Route::post('/declineNotification/{id}', [AdminController::class, 'declineNotification'])->name('declinenotification');
 });
 
+// to logout for user
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout'])->name('logout');

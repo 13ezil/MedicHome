@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notification;
 
 class DeclineNotification extends Notification
 {
+    protected $name;
     use Queueable;
 
     /**
@@ -16,9 +17,9 @@ class DeclineNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name)
     {
-        //
+        $this->name = $name;
     }
 
     /**
@@ -41,21 +42,8 @@ class DeclineNotification extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            "info" => "Your order has been declined.",
+            "info" => "Your ". $this->name . " order has been declined.",
         ];
     }
-
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            "info" => "Your order has been declined.",
-        ];
-    }
+    
 }

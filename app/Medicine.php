@@ -6,7 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Medicine extends Model
 {
-    protected $fillable = [
-        'name', 'quantity', 'price', 'review'
-    ];
+    protected $guarded = [];
 }

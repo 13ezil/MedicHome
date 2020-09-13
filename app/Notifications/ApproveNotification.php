@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notification;
 
 class ApproveNotification extends Notification
 {
+    protected $name;
     use Queueable;
 
     /**
@@ -16,9 +17,9 @@ class ApproveNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name)
     {
-        //
+        $this->name = $name;
     }
 
     /**
@@ -41,21 +42,7 @@ class ApproveNotification extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            "info" => "Your order has been approved.",
-        ];
-    }
-
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            "info" => "Your order has been approved.",
+            "info" => "Your ".$this->name ." order has been approved.",
         ];
     }
 }

@@ -54,13 +54,27 @@
 <script>
     var msg = '{{Session::get('success')}}';
     var exist = '{{Session::has('success')}}';
-    if(exist){
-        Swal.fire({
+    if(exist)
+    {
+        Swal.fire(
+            {
                 title: msg,
                 type: 'success',
                 showCloseButton: true
             })
-           }
+    }
+
+    var msgs = '{{Session::get('error')}}';
+    var exists = '{{Session::has('error')}}';
+    if(exists)
+    {
+        Swal.fire(
+            {
+                title: msgs,
+                type: 'error',
+                showCloseButton: true
+            })
+    }
 
     function loading()
     {
@@ -69,22 +83,27 @@
         title: 'Wait a second...',
         timer: 2000,
         timerProgressBar: true,
-        onBeforeOpen: () => {
-        Swal.showLoading()
-        timerInterval = setInterval(() => {
-        const content = Swal.getContent()
-        if (content) {
-            const b = content.querySelector('b')
-        if (b) {
-            b.textContent = Swal.getTimerLeft()
+        onBeforeOpen: () => 
+        {
+            Swal.showLoading()
+            timerInterval = setInterval(() => 
+            {
+                const content = Swal.getContent()
+                if (content) 
+                {
+                    const b = content.querySelector('b')
+                    if (b) 
+                    {
+                        b.textContent = Swal.getTimerLeft()
+                    }
+                }
+            }, 100)
+        },
+        onClose: () => 
+        {
+            clearInterval(timerInterval)
         }
-        }
-        }, 100)
-    },
-    onClose: () => {
-    clearInterval(timerInterval)
-    }
-    }).then((result) => {})
+        }).then((result) => {})
     }
    
    
@@ -95,8 +114,8 @@
    
    function showPosition(position) 
    {
-    document.getElementById("latlong").value = "Latitude: " + position.coords.latitude + 
-        "  Longitude: " + position.coords.longitude;
+    document.getElementById("latlong").value = position.coords.latitude + 
+        "," + position.coords.longitude;
    }
     
     </script>
