@@ -25,6 +25,7 @@ Route::post('/placeOrder', [MainController::class, 'placeOrder'])->name('placeor
 Route::get('/user/notification', [MainController::class, 'notification'])->name('notification');
 Route::post('/user/getnotification', [MainController::class, 'getnotification'])->name('getnotification');
 Route::get('/getdirection', [MainController::class, 'getdirection'])->name('direction');
+Route::get('/contact', [MainController::class, 'contact'])->name('contact');
 });
 Auth::routes();
 

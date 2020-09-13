@@ -150,4 +150,9 @@ class MainController extends Controller
     {
         return view('page.direction');
     }
+    
+    public function contact()
+    {
+        return view('page.contact');
+    }
 }
