@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('content')
-<div class="container">
+<div class="container-fluid-sm">
 <img src="/main.jpg" class="img-fluid py-3 px-4">
 <hr color="#0892d0" style="height: 2.5px;">
 <p class="lead pl-4 pr-4 pt-2 text-justify">

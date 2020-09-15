@@ -77,16 +77,12 @@
         <!--Grid column-->
         <div class="col-md-3 text-center">
             <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p>Address</p>
+                <li><i class="fa fa-phone mt-4 fa-2x"></i>
+                    <p>000-000-000</p>
                 </li>
 
-                <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                    <p>Phone</p>
-                </li>
-
-                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                    <p>Mail</p>
+                <li><i class="fa fa-envelope mt-4 fa-2x"></i>
+                    <p>abc@xyz.com</p>
                 </li>
             </ul>
         </div>
