@@ -1,6 +1,6 @@
 <nav class="navbar nav-pills navbar-expand-md navbar-light" 
 style="background-color: #00a86b;">
-  <a class="navbar-brand px-3" href="{{route('homepage')}}""><h2><b>MedicHome</b></h2></a>
+  <a class="navbar-brand px-3" href="{{route('homepage')}}""><img src="/MedicHome.jpg" height="75px" ></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,6 +19,13 @@ style="background-color: #00a86b;">
        <big> {{auth()->user()->name}}</big>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div id="change">
+          <change-preference
+          :mail = {{auth()->user()->mail_preference}}
+          >
+        </change-preference>
+        </div>   
+
         <a class="dropdown-item" href="{{route('logout')}}">Log out</a>
       </div>
       <a href="{{route('notification')}}"><button type="button" class="btn bg-transaparent btn-lg"><i class="fa fa-bell"></i></button></a>

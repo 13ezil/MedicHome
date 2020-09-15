@@ -48,7 +48,7 @@
   {
     let timerInterval
     Swal.fire({
-    title: 'Storig...',
+    title: 'Storing...',
     timer: 2000,
     timerProgressBar: true,
     onBeforeOpen: () => {
