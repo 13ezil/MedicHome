@@ -155,4 +155,24 @@ class MainController extends Controller
     {
         return view('page.contact');
     }
+
+    public function changePreference()
+    {
+        $user = User::find(auth()->user()->id);
+        $value = $user->mail_prefs;
+        $user->update([
+                'mail_preference' => $value
+                ]);
+        return $value;
+    }
+
+    public function search()
+    {
+        return view('page.search');
+    }
+    public function searchMedicine($name)
+    {
+        $med = Medicine::where('name','Like','%'. $name . '%')->get();
+        return $med;
+    }
 }

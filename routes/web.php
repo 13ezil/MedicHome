@@ -26,12 +26,15 @@ Route::get('/user/notification', [MainController::class, 'notification'])->name(
 Route::post('/user/getnotification', [MainController::class, 'getnotification'])->name('getnotification');
 Route::get('/getdirection', [MainController::class, 'getdirection'])->name('direction');
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
+Route::post('/changePreference', [MainController::class, 'changePreference'])->name('preference');
 });
 Auth::routes();
 
 //if user is not logged in
 Route::get('/', [MainController::class, 'home'])->name('homepage');
 Route::get('/medicineDetail', [MainController::class, 'medicine'])->name('medicinedetail');
+Route::get('/search', [MainController::class, 'search'])->name('search');
+Route::post('/searchMedicine/{name}', [MainController::class, 'searchMedicine'])->name('searchMedicine');
 
 //after user logged in
 Route::get('/home',[HomeController::class,'index'])->name('home');
