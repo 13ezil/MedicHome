@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="footer font-small blue pt-2 pl-1 pr-1  mb-0 mr-0 ml-0" 
+<footer class="footer font-small blue pt-2 pl-1 pr-1  mb-0 mr-0 ml-0 mt-auto" 
 style="background-color: #00a86b; text-align: center;">
 
   <!-- Footer Links -->

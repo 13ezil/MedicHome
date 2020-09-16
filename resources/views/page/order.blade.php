@@ -1,15 +1,14 @@
 @extends('layout.app')
 @section('content')
-<div class="container">
+<div class="container mb-5 mt-5 pb-3">
     
    @include('include.ordererror') 
    @include('include.flashmsg')
-
+<div class="ordercard">
 <form  method="POST" action="{{route('placeorder')}}" enctype="multipart/form-data">
     @csrf
     <div class="row mt-4">
-        <div class="col-sm-2"><label for="colFormLabelLg"><big> Name of medicine</big></label></div>
-        <div class="col"><input type="text" class="form-control form-control-lg w-75" placeholder="Name of medicine" name="medicine"></div>
+        <div class="col-sm-12"><input type="text" class="form-control form-control-lg w-75" placeholder="Name of medicine" name="medicine"></div>
     </div>
     <div class="row mt-4">    
         <div class="col-sm-2"><label> <big>Quantity </big> </label></div>
@@ -27,20 +26,20 @@
           </select></div>   
     </div>
     <div class="row mt-4">
-        <div class="col-sm-2"><label><big> Doctor's prescription </big></label> </div>
+        <div class="col-sm-3"><label><big> Doctor's prescription </big></label> </div>
         <div class="col"> <input type="file" name="doctorPrescription" class="form-control-file w-75" ;></div>
     </div>
     <div class="row mt-4">
-        <div class="col-sm-2"><label><big> Medicine's photo</big> </label></div>
+        <div class="col-sm-3"><label><big> Medicine's photo</big> </label></div>
         <div class="col"> <input type="file" name="medicinephoto" class="form-control-file w-75"></div>
     </div>
     <div class="row mt-4">
-        <div class="col-sm-2"><label><big> Location </big></label></div>
-        <div class="col"><input type="text" class="form-control form-control-lg w-75" name="location" placeholder="Location"></div>
+        <div class="col"><input type="text" class="form-control form-control-lg w-50" name="location" placeholder="Location"></div>
     </div>
     <input type="hidden" name="latlong" id="latlong">
+    </div>
     <div class="row mt-4">
-        <button type="submit" onclick="loading()" class="btn btn-primary btn-lg btn-block w-50 px-auto">Place Order</button>
+        <button type="submit" onclick="loading()" class="btn btn-info btn-lg w-25 mx-auto">Place Order</button>
     </div>
 </form>
 </div>

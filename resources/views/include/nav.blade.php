@@ -9,7 +9,7 @@ style="background-color: #00a86b;">
       <a class="nav-item nav-link" href="{{route('medicinedetail')}}"><big>Medicine Details</big></a>
       <a class="nav-item nav-link" href="{{route('order')}}"><big>Order</big></a>
       <a class="nav-item nav-link" href="{{route('history')}}"><big>History Details</big></a>
-      <a class="nav-item nav-link" href="{{route('direction')}}"><big>Direction</big></a>
+      <a class="nav-item nav-link" href="{{route('direction')}}" target="_blank"><big>Direction</big></a>
     </div>
   </div>
 
