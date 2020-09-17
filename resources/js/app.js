@@ -22,7 +22,9 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('admin-notification', require('./components/AdminNotification.vue').default);
 Vue.component('user-notification', require('./components/UserNotification.vue').default);
-
+Vue.component('user-direction', require('./components/UserDirection.vue').default);
+Vue.component('user-search', require('./components/UserSearch.vue').default);
+Vue.component('change-preference', require('./components/ChangePreference.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -30,5 +32,9 @@ Vue.component('user-notification', require('./components/UserNotification.vue').
  */
 
 const app = new Vue({
-    el: '#app',
+    el: '#app'
 });
+
+const change = new Vue({
+    el: '#change'
+})

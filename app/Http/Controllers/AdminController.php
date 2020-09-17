@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Notifications\ApproveNotification;
 use App\Notifications\DeclineNotification;
-use App\Http\Requests\StoreRequest;
 use App\Http\Requests\UpdateRequest;
+use App\Http\Requests\StoreRequest;
+use App\Notifications\DeclineOrder;
+use App\Notifications\AcceptOrder;
 use Illuminate\Http\Request;
 use App\Medicine;
 use App\User;
@@ -80,7 +82,14 @@ class AdminController extends Controller
     public function approveNotification($id)
     {
         $notification = auth()->user()->unreadNotifications->where('id', $id)->first();
-        User::find($notification['data']['order']['user_id'])->notify(new ApproveNotification());
+        $user = User::find($notification['data']['order']['user_id']);
+        $user->notify(new ApproveNotification($notification['data']['order']['name']));
+
+        if($user->mail_preference)
+        {
+            $user->notify(new AcceptOrder($notification['data']['order']['name']));
+        }
+
         auth()->user()->unreadNotifications->where('id', $id)->markAsRead();
     }
 
@@ -88,7 +97,13 @@ class AdminController extends Controller
     {
         $notification = auth()->user()->unreadNotifications->where('id', $id)->first();
         auth()->user()->unreadNotifications->where('id', $id)->markAsRead();
-        User::find($notification['data']['order']['user_id'])->notify(new DeclineNotification());
+        $user = User::find($notification['data']['order']['user_id']);
+        $user->notify(new DeclineNotification($notification['data']['order']['name']));
+
+        if($user->mail_preference)
+        {
+            $user->notify(new DeclineOrder($notification['data']['order']['name']));
+        }
 
         $medicine = Medicine::where('name',$notification['data']['order']['name'])->first();
         if($medicine == null)

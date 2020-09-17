@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #00a86b;">
-    <a class="navbar-brand" href="{{route('admin.viewmedicine')}}"><h2><b>MedicHome</b></h2></a>
+    <a class="navbar-brand" href="{{route('admin.viewmedicine')}}"><img src="/MedicHome.jpg" height="75px" ></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

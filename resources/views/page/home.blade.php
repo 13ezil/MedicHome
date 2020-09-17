@@ -1,5 +1,6 @@
 @extends('layout.app')
 @section('content')
+<<<<<<< HEAD
 
 <style>
   .contact .contact-form .form-control {
@@ -655,6 +656,10 @@
 
 <div class="container" style="overflow: auto; margin-bottom: 6%;">
 <img src="/main.jpg" class="img-fluid py-3 w-100 mw-100 ">
+=======
+<div class="container-fluid-sm">
+<img src="/main.jpg" class="img-fluid py-3 px-4">
+>>>>>>> 4f961d6abbea41a0d7effe90229bf566031866f9
 <hr color="#0892d0" style="height: 2.5px;">
 
 <!--Header Upper-->

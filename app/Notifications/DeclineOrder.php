@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class ApproveNotification extends Notification
+class DeclineOrder extends Notification
 {
     protected $name;
     use Queueable;
@@ -19,7 +19,7 @@ class ApproveNotification extends Notification
      */
     public function __construct($name)
     {
-        $this->name = $name;
+        $this->name = "Your ".$name." order has been declined";
     }
 
     /**
@@ -30,7 +30,7 @@ class ApproveNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['mail'];
     }
 
     /**
@@ -39,11 +39,23 @@ class ApproveNotification extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    public function toDatabase($notifiable)
+    public function toMail($notifiable)
+    {
+        return (new MailMessage)
+                    ->line($this->name . "Sorry for inconvince.")
+                    ->line('Thank you for using our application!');
+    }
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toArray($notifiable)
     {
         return [
-            "info" => "Your ".$this->name ." order has been approved.",
+            //
         ];
     }
 }
-

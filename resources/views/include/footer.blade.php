@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
   .footer-main {
   position: relative;
@@ -5,6 +6,11 @@
   z-index: 1;
   background: #132646;
 }
+=======
+<!-- Footer -->
+<footer class="footer font-small blue pt-2 pl-1 pr-1  mb-0 mr-0 ml-0 mt-auto" 
+style="background-color: #00a86b; text-align: center;">
+>>>>>>> 4f961d6abbea41a0d7effe90229bf566031866f9
 
 .footer-main .footer-top {
   padding-top: 85px;
@@ -53,9 +59,20 @@
   color: #ababab;
 }
 
+<<<<<<< HEAD
 .footer-main .footer-top .social-icons {
   margin-top: 20px;
 }
+=======
+        <ul class="list-unstyled">
+          <li>
+            <a href="{{route('contact')}}">Contact Us</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+        </ul>
+>>>>>>> 4f961d6abbea41a0d7effe90229bf566031866f9
 
 .footer-main .footer-top .social-icons li a {
   display: block;

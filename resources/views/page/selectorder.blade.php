@@ -1,10 +1,16 @@
 @extends('layout.app')
 @section('content')
+<<<<<<< HEAD
 <style>
   .form{
       margin-top: 7%;
   }
 </style>
+=======
+@include('include.ordererror') 
+@include('include.flashmsg')
+
+>>>>>>> 4f961d6abbea41a0d7effe90229bf566031866f9
 <form  method="POST" action="{{route('placeorder')}}" enctype="multipart/form-data">
     @csrf
     <div class="row mt-4 mr-4 ml-4">
@@ -38,6 +44,7 @@
         <div class="col-2"><label><big> Location </big></label></div>
         <div class="col"><input type="text" class="form-control form-control-lg" name="location" placeholder="Location"></div>
     </div>
+    <input type="hidden" name="latlong" id="latlong">
     <div class="row mt-4 mr-4 ml-4">
         <button type="submit" onclick="loading()" class="btn btn-primary btn-lg btn-block">Place Order</button>
     </div>
@@ -72,5 +79,26 @@
   }
   }).then((result) => {})
   }
+
+  var msgs = '{{Session::get('error')}}';
+    var exists = '{{Session::has('error')}}';
+    if(exists){
+        Swal.fire({
+                title: msgs,
+                type: 'error',
+                showCloseButton: true
+            })
+           }
+
+  if (navigator.geolocation) 
+    {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } 
+   
+   function showPosition(position) 
+   {
+    document.getElementById("latlong").value = position.coords.latitude + 
+        ", " + position.coords.longitude;
+   }
     </script>
 @endpush

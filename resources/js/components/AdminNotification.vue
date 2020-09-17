@@ -21,6 +21,7 @@
          <div class="col-2" v-else> <img :src=" '/storage/uploads/doctorprescription/' + n.data.order.doctor_prescription " width="200px" height="150px" class="border border-dark"></div>
          <div class="col-2"> <button v-on:click.prevent="approveNotification(n.id)" class="btn btn-success btn-lg" ><i class="fa fa-check"></i></button>
           <button v-on:click.prevent="declineNotification(n.id)" class="btn btn-danger btn-lg" ><i class="fa fa-window-close"></i></button>
+           <button v-on:click.prevent="getDirection(n.data.order.latlong)" class="btn btn-secondary btn-lg" ><i class="fa fa-arrow-right"></i></button>
          </div>
         </div>
 
@@ -31,8 +32,12 @@
 export default {
 data()
   {
-     return {
-     notification:[],
+    return {
+      notification:[],
+      latlong:'',
+      url: "https://www.google.com/maps/dir/?api=1",
+      origin:'',
+      destination:'',
      }   
   },
 methods:
@@ -83,9 +88,45 @@ methods:
       notifications()
       {
         axios.post('/admin/getnotification')
-    .then((response)=>{this.notification = response.data
-     });
-      }
+        .then((response)=>{this.notification = response.data
+        });
+      },
+      getDirection(n)
+      {
+        let timerInterval
+        Swal.fire({
+        title: 'Wait a second...',
+        timer: 2000,
+        timerProgressBar: true,
+        onBeforeOpen: () => 
+        {
+          Swal.showLoading()
+          timerInterval = setInterval(() => 
+          {
+            const content = Swal.getContent()
+            if (content) 
+            {
+              const b = content.querySelector('b')
+              if (b) 
+              {
+                b.textContent = Swal.getTimerLeft()
+              }
+            }
+            }, 100)
+        },
+        onClose: () => 
+        {
+            clearInterval(timerInterval)
+        }
+        }).then((result) => {})
+
+        let latlong = n.split(",")
+        this.origin = "&origin=27.7286, 85.3457"               
+        this.destination = "&destination=" + latlong[0] + "," + latlong[1]
+        window.location.href = new URL(this.url + this.origin + this.destination)   
+        
+    } 
+      
 
   },
 created()
