@@ -1,5 +1,11 @@
 @extends('layout.app')
 @section('content')
+<style>
+    .whole{
+        margin-top: 7%;
+    }
+</style>
+<div class="whole">
 <div class="row d-flex justify-content-center mt-4">
     <div class="col-2"><big>Medicine' Name</big></div>
     <div class="col-2"><big>Quantity</big></div>
@@ -38,4 +44,5 @@
 <div class="d-flex justify-content-center mt-4">
     {{ $order->links() }}
     </div>
+</div>
 @endsection

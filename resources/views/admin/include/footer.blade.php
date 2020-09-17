@@ -1,6 +1,6 @@
 <!-- Footer -->
-<footer class="footer font-small blue pt-2 pl-1 pr-1  mb-0 mr-0 ml-0" 
-style="background-color: #00a86b; text-align: center;">
+<footer id="footer" class="footer font-small blue pt-2 pl-1 pr-1  mb-0 mr-0 ml-0 fixed-bottom" 
+style="background-color: #00a86b; text-align: center; width:100%;">
 
   <!-- Footer Links -->
   <div class="container text-center text-md-left">

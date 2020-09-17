@@ -1,5 +1,10 @@
 @extends('layout.app')
 @section('content')
+<style>
+  .form{
+      margin-top: 7%;
+  }
+</style>
 <form  method="POST" action="{{route('placeorder')}}" enctype="multipart/form-data">
     @csrf
     <div class="row mt-4 mr-4 ml-4">
