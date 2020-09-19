@@ -1,15 +1,12 @@
 @extends('layout.app')
 @section('content')
-<<<<<<< HEAD
 <style>
     .container{
        margin-top : 7%;
     }
 </style>
 <div class="container">
-=======
 <div class="container mb-5 mt-5 pb-3">
->>>>>>> 4f961d6abbea41a0d7effe90229bf566031866f9
     
    @include('include.ordererror') 
    @include('include.flashmsg')

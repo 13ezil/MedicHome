@@ -1,16 +1,13 @@
 @extends('layout.app')
 @section('content')
-<<<<<<< HEAD
 <style>
   .form{
       margin-top: 7%;
   }
 </style>
-=======
 @include('include.ordererror') 
 @include('include.flashmsg')
 
->>>>>>> 4f961d6abbea41a0d7effe90229bf566031866f9
 <form  method="POST" action="{{route('placeorder')}}" enctype="multipart/form-data">
     @csrf
     <div class="row mt-4 mr-4 ml-4">
